@@ -5,17 +5,22 @@ sudo apt update
 mkdir -p ~/Downloads/apps/
 
 # install package managers
-sudo apt install snapd                                                                          # snap
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" # brew
+sudo apt install snapd -y # snap
+read -r -p "Install brew?" response
+if [[ "$response" =~ ^[yY]([eE][sS])?$ ]]; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" # brew
+else
+    echo "Skipped"
+fi
 
 # install chrome
-wget -P ~/Downloads/apps/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+wget -O ~/Downloads/apps/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i ~/Downloads/apps/google-chrome.deb
 
 # install nvim
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
-sudo apt install make gcc ripgrep unzip git xclip neovim
+sudo apt install make gcc ripgrep unzip git xclip neovim -y
 
 # expose nvim globally.
 sudo mv squashfs-root /
@@ -24,22 +29,22 @@ sudo ln -s /squashfs-root/AppRun /usr/bin/vi
 sudo ln -s /squashfs-root/AppRun /usr/bin/vim
 
 # install telegram
-wget -P ~/Downloads/apps/telegram.xz https://telegram.org/dl/desktop/linux
+wget -O ~/Downloads/apps/telegram.xz https://telegram.org/dl/desktop/linux
 tar -xvf telegram.xz -C ~/apps
 
 # setup zsh
-sudo apt install zsh
+sudo apt install zsh -y
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
 # from ThePrimagen
-sudo apt install stow
+sudo apt install stow -y
 zsh ubuntu
 
 # install tmux
-sudo apt install tmux
+sudo apt install tmux -y
 
 # setup python
-sudo apt install python3-pip
+sudo apt install python3-pip -y
 
 # setup node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
@@ -53,27 +58,26 @@ sudo rm -rf /usr/local/go && tar -C /usr/local -xzf ~/Downloads/go1.24.1.linux-a
 timedatectl set-local-rtc 1 --adjust-system-clock
 
 # install jq
-sudo apt install jq
+sudo apt install jq -y
 
 # setup wallpaper
-sudo apt install feh
-sudo apt install compton
+sudo apt install feh compton -y
 
 # install screenshot tool
-sudo apt install maim
+sudo apt install maim -y
 
 # install i3lock
-sudo apt install i3lock
+sudo apt install i3lock -y
 
 # istall gnome-tweaks
 sudo add-apt-repository universe
-sudo apt install gnome-tweaks
+sudo apt install gnome-tweaks -y
 
 # install image2txt tool
 sudo snap install frog
 
 # install shellcheck
-sudo apt install shellcheck
+sudo apt install shellcheck -y
 
 # setup git
 repo="git-ecosystem/git-credential-manager"
@@ -84,16 +88,23 @@ git-credential-manager configure
 git config --global credential.credentialStore secretservice
 
 # install brigtness tool
-sudo apt install brightnessctl
-
-sudo apt install os-prober
+sudo apt install brightnessctl -y
 
 # install kitty
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
+# install regolith
+wget -qO - https://archive.regolith-desktop.com/regolith.key |
+    gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg >/dev/null
+echo deb "[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] \
+https://archive.regolith-desktop.com/ubuntu/stable jammy v3.2" |
+    sudo tee /etc/apt/sources.list.d/regolith.list
+sudo apt update
+sudo apt install regolith-desktop regolith-session-flashback regolith-look-lascaille
+
 read -r -p "Install os-prober?" response
 if [[ "$response" =~ ^[yY]([eE][sS])?$ ]]; then
-    install os-prober
+    sudo apt install os-prober
     sudo os-prober
     sudo mount /dev/nvme0n1p1 /mnt
     sudo cp -ax /mnt/EFI/Microsoft /boot/efi/EFI
