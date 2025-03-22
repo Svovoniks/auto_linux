@@ -3,6 +3,7 @@
 sudo apt update
 # make a dirctory for app binaries
 mkdir -p ~/Downloads/apps/
+mkdir -p ~/apps/
 
 # install package managers
 sudo apt install snapd -y # snap
@@ -22,15 +23,9 @@ sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
 sudo apt install make gcc ripgrep unzip git xclip neovim -y
 
-# expose nvim globally.
-sudo mv squashfs-root /
-sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
-sudo ln -s /squashfs-root/AppRun /usr/bin/vi
-sudo ln -s /squashfs-root/AppRun /usr/bin/vim
-
 # install telegram
-wget -O ~/Downloads/apps/telegram.xz https://telegram.org/dl/desktop/linux
-tar -xvf telegram.xz -C ~/apps
+wget -O ~/Downloads/apps/telegram.tar https://telegram.org/dl/desktop/linux
+tar -xvf ~/Downloads/apps/telegram.tar -C ~/apps
 
 # setup zsh
 sudo apt install zsh -y
@@ -44,7 +39,9 @@ zsh ubuntu
 sudo apt install tmux -y
 
 # setup python
-sudo apt install python3-pip -y
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install python3.12
 
 # setup node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash

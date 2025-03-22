@@ -1,0 +1,9 @@
+#!/bin/bash
+
+name="terminal"
+
+tmux new-session -d -s $name -n $name
+
+tmux send-keys -t "$name:1" " clear" C-m
+tmux send-keys -t "$name:1" " screenfetch" C-m
+
