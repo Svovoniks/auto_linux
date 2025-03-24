@@ -1,3 +1,0 @@
-[vpn]
-is_on = no
-

@@ -1,7 +1,0 @@
-include $HOME/.config/i3/config
-
-# Start the systemd target manually is the session is not started by systemd
-# Notify systemd about successful session start otherwise
-exec --no-startup-id [ -z "${NOTIFY_SOCKET-}" ] \
-  && systemctl --user start regolith-x11.target \
-  || systemd-notify --ready

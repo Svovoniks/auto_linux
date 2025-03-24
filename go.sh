@@ -31,3 +31,5 @@ if [[ "$response" =~ ^[yY]([eE][sS])?$ ]]; then
 else
     echo "Skipped"
 fi
+
+bash ./install_dotfiles.sh
