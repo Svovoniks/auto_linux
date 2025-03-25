@@ -14,13 +14,17 @@ sudo apt install -y "${packages[@]}"
 packages=("maim")
 
 # i3 + regolith
-packages=("regolith-desktop" "regolith-session-flashback" "regolith-look-lascaille" "i3lock" "feh" "compton" "gnome-tweaks" "brightnessctl")
+packages=("regolith-desktop" "regolith-session-flashback" "regolith-look-lascaille" "i3lock" "feh" "compton" "gnome-tweaks" "brightnessctl"  "dmenu" "i3status")
 sudo apt install -y "${packages[@]}"
 
 # os-prober
 packages=("os-prober")
 sudo apt install -y "${packages[@]}"
 
+# lua rocks reqs
+packages=("build-essential" "libreadline-dev" "unzip")
+sudo apt install -y "${packages[@]}"
+
 # misc
-packages=("jq" "shellcheck" "tmux" "zsh" "stow" "python3.12" "obs-studio")
+packages=("jq" "shellcheck" "tmux" "zsh" "stow" "python3.12" "obs-studio"  "fzf")
 sudo apt install -y "${packages[@]}"

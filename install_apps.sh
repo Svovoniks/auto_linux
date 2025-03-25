@@ -2,7 +2,7 @@
 
 # chrome
 wget -O ~/Downloads/apps/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-dpkg -i ~/Downloads/apps/google-chrome.deb
+sudo dpkg -i ~/Downloads/apps/google-chrome.deb
 
 # telegram
 wget -O ~/Downloads/apps/telegram.tar https://telegram.org/dl/desktop/linux
@@ -29,3 +29,16 @@ git config --global credential.credentialStore secretservice
 
 # kitty
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+
+# rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# luarocks
+wget -O ~/Downloads/apps/luarocks.tar.gz https://luarocks.github.io/luarocks/releases/luarocks-3.11.1.tar.gz
+tar -xzvf ~/Downloads/apps/luarocks.tar.gz -C ~/apps
+cur="$(pwd)"
+cd ~/apps/luarocks/configure || exit 1
+./configure
+make
+sudo make install
+cd "$cur" || exit 1
