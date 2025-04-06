@@ -36,3 +36,6 @@ else
 fi
 
 bash ./install_dotfiles.sh
+
+# install apps
+bash ./install_apps.sh
