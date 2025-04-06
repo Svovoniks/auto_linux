@@ -10,6 +10,7 @@ tar -xvf ~/Downloads/apps/telegram.tar -C ~/apps
 
 # ohmyzsh
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+chsh -s "$(which zsh)"
 
 # node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
@@ -26,9 +27,6 @@ wget -O ~/Downloads/git-gcm.deb "$latest_release_url"
 sudo dpkg -i ~/Downloads/git-gcm.deb
 git-credential-manager configure
 git config --global credential.credentialStore secretservice
-
-# kitty
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

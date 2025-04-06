@@ -1,0 +1,44 @@
+[legacy]
+default-show-menubar=false
+headerbar=@mb false
+
+[legacy/profiles:]
+default='b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', '288fbfaf-a6d0-4edc-8d21-7a000f369bfe']
+
+[legacy/profiles:/:288fbfaf-a6d0-4edc-8d21-7a000f369bfe]
+audible-bell=false
+background-color='#1F2430'
+background-transparency-percent=4
+bold-color='#77A8D9'
+bold-color-same-as-fg=false
+bold-is-bright=false
+cursor-background-color='#BFBAB0'
+cursor-blink-mode='off'
+cursor-colors-set=true
+cursor-foreground-color='#FF3333'
+font='BitstreamVeraSansMono Nerd Font 12'
+foreground-color='#CBCCC6'
+highlight-background-color='#BFBAB0'
+highlight-colors-set=true
+highlight-foreground-color='#1F2430'
+nord-gnome-terminal-version='0.1.0'
+palette=['#1F2430', '#FF3333', '#A6CC70', '#FFD580', '#77A8D9', '#B48EAD', '#95E6CB', '#CBCCC6', '#BFBAB0', '#FF3333', '#BAE67E', '#FFE6B3', '#73D0FF', '#D4BFFF', '#5CCFE6', '#FFFFFF']
+scrollbar-policy='never'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=false
+visible-name='Regolith'
+
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(0,0,0)'
+background-transparency-percent=37
+default-size-columns=80
+font='Fira Mono 14'
+foreground-color='rgb(255,255,255)'
+scrollbar-policy='never'
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=true

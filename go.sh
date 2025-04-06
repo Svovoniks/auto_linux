@@ -21,6 +21,9 @@ fi
 # fix clock for dualboot
 timedatectl set-local-rtc 1 --adjust-system-clock
 
+# load terminal profile
+dconf load /org/gnome/terminal/ <./termial_profile.txt.txt
+
 # install os-prober
 read -r -p "Install os-prober?" response
 if [[ "$response" =~ ^[yY]([eE][sS])?$ ]]; then
