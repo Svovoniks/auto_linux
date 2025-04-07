@@ -27,7 +27,6 @@ dconf load /org/gnome/terminal/ <./termial_profile.txt
 # install os-prober
 read -r -p "Install os-prober?" response
 if [[ "$response" =~ ^[yY]([eE][sS])?$ ]]; then
-    sudo apt install os-prober
     sudo os-prober
     sudo mount /dev/nvme0n1p1 /mnt
     sudo cp -ax /mnt/EFI/Microsoft /boot/efi/EFI

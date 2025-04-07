@@ -14,7 +14,7 @@ sudo apt install -y "${packages[@]}"
 packages=("maim")
 
 # i3 + regolith
-packages=("regolith-desktop" "regolith-session-flashback" "regolith-look-lascaille" "i3lock" "feh" "compton" "gnome-tweaks" "brightnessctl"  "dmenu" "i3status")
+packages=("regolith-desktop" "regolith-session-flashback" "regolith-look-lascaille" "i3lock" "compton" "gnome-tweaks" "brightnessctl"  "dmenu" "i3status")
 sudo apt install -y "${packages[@]}"
 
 # os-prober
